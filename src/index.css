@@ -1,1 +1,385 @@
 @import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-sans: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-paper: #ffffff;
+  --color-paper-muted: #f4f1ef;
+  --color-ink: #1a1214;
+  --color-brand: #7a1f2b;
+  --color-accent: #4c1018;
+  --color-muted: #6e6466;
+
+  --animate-rise: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.55s ease-out both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rail-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes orb-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(8%, -6%) scale(1.08);
+  }
+}
+
+@keyframes orb-drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-10%, 8%) scale(1.12);
+  }
+}
+
+@keyframes word-shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  img,
+  video,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-brand) 35%, white);
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+}
+
+@utility font-mono {
+  font-family: var(--font-mono);
+}
+
+.home-shell {
+  background: var(--color-paper);
+}
+
+.dot-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  word-break: break-word;
+}
+
+.dot-label::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--color-brand);
+  flex-shrink: 0;
+}
+
+/* Floating hero atmosphere */
+.hero-orb {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(60px);
+  opacity: 0.45;
+}
+
+.hero-orb-a {
+  top: -3rem;
+  left: -5rem;
+  width: 14rem;
+  height: 14rem;
+  background: color-mix(in srgb, var(--color-brand) 35%, transparent);
+  animation: orb-drift 14s ease-in-out infinite;
+}
+
+.hero-orb-b {
+  top: 1rem;
+  right: -3rem;
+  width: 12rem;
+  height: 12rem;
+  background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  animation: orb-drift-b 18s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .hero-orb-a {
+    top: -4rem;
+    left: -6rem;
+    width: 22rem;
+    height: 22rem;
+  }
+
+  .hero-orb-b {
+    top: 2rem;
+    right: -4rem;
+    width: 18rem;
+    height: 18rem;
+  }
+}
+
+.hero-word {
+  background: linear-gradient(
+    110deg,
+    var(--color-ink) 0%,
+    var(--color-brand) 45%,
+    var(--color-ink) 90%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: word-shimmer 6s ease-in-out infinite;
+}
+
+/* Category desk tabs (All / News / …) */
+.desk-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.15rem 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
+}
+
+.desk-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.desk-tabs--wrap {
+  flex-wrap: wrap;
+  overflow-x: visible;
+}
+
+.desk-tab {
+  position: relative;
+  flex-shrink: 0;
+  padding: 0.75rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .desk-tab {
+    padding: 0.7rem 0.95rem;
+  }
+}
+
+.desk-tab:hover {
+  color: var(--color-ink);
+}
+
+.desk-tab.is-active {
+  color: var(--color-ink);
+}
+
+.desk-tab.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0.65rem;
+  right: 0.65rem;
+  bottom: -1px;
+  height: 2px;
+  background: var(--color-brand);
+}
+
+/* Picture desk / Also today auto-advance progress */
+@keyframes picture-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.picture-progress,
+.also-today-progress {
+  width: 0%;
+  animation: picture-progress 4.5s linear forwards;
+}
+
+.also-today-progress {
+  animation-duration: 6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .picture-progress,
+  .also-today-progress {
+    animation: none;
+    width: 100%;
+  }
+}
+
+/* Mobile-safe media ratios */
+.media-hero {
+  aspect-ratio: 16 / 10;
+}
+
+@media (min-width: 768px) {
+  .media-hero {
+    aspect-ratio: 21 / 9;
+  }
+}
+
+.mobile-nav-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.mobile-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Breaking news ticker */
+.ticker-mask {
+  mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+}
+
+.ticker-track {
+  animation: ticker-scroll 40s linear infinite;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* Horizontal feature rail */
+.feature-rail {
+  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+}
+
+.feature-rail-track {
+  animation: rail-scroll 48s linear infinite;
+}
+
+.feature-rail:hover .feature-rail-track {
+  animation-play-state: paused;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-fade-in,
+  .ticker-track,
+  .feature-rail-track,
+  .hero-orb-a,
+  .hero-orb-b,
+  .hero-word {
+    animation: none !important;
+  }
+
+  .hero-word {
+    color: var(--color-brand);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
