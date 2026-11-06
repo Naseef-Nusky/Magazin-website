@@ -119,6 +119,8 @@ function makeArticle({
   const mainImage = localFile
     ? {
         localFile,
+        // Vite serves files from /public at site root
+        url: `/${String(localFile).replace(/^public\//, '')}`,
         alt,
         photographer: 'Veridoxa generated asset',
         source: 'Veridoxa',

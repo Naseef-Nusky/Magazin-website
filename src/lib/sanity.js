@@ -6,7 +6,10 @@ import {
   sortCategoriesByNav,
 } from '../data/demoArticles'
 
-const projectId = import.meta.env.VITE_SANITY_PROJECT_ID
+// Fallbacks so production still reads Sanity if Vercel env vars were forgotten
+const projectId =
+  import.meta.env.VITE_SANITY_PROJECT_ID ||
+  (import.meta.env.PROD ? 'cm10f4zr' : undefined)
 const dataset = import.meta.env.VITE_SANITY_DATASET || 'production'
 const apiVersion = import.meta.env.VITE_SANITY_API_VERSION || '2024-01-01'
 
@@ -19,6 +22,8 @@ export const client = isSanityConfigured
       apiVersion,
       // Fresh data while developing; CDN in production builds
       useCdn: !import.meta.env.DEV,
+      // Public dataset — avoid credentialed CORS failures on new domains
+      withCredentials: false,
     })
   : null
 
