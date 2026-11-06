@@ -20,8 +20,8 @@ export const client = isSanityConfigured
       projectId,
       dataset,
       apiVersion,
-      // CDN is fast for readers; list queries stay light so freshness feels snappy
-      useCdn: !import.meta.env.DEV,
+      // Skip API CDN so Studio publishes appear on the site immediately
+      useCdn: false,
       withCredentials: false,
     })
   : null
@@ -90,14 +90,7 @@ const cache = {
   inflightCategories: null,
 }
 
-const LIST_TTL_MS = 60_000
-const ARTICLE_TTL_MS = 60_000
-
-function isFresh(at, ttl) {
-  return at > 0 && Date.now() - at < ttl
-}
-
-/** Instant paint from memory when available (may be slightly stale). */
+/** Instant paint from memory; callers still re-fetch every visit. */
 export function peekArticles() {
   return cache.articles
 }
@@ -107,10 +100,6 @@ export function peekCategories() {
 }
 
 export async function getArticles({ force = false } = {}) {
-  if (!force && cache.articles && isFresh(cache.articlesAt, LIST_TTL_MS)) {
-    return cache.articles
-  }
-
   if (!force && cache.inflightArticles) {
     return cache.inflightArticles
   }
@@ -146,11 +135,8 @@ export async function getArticles({ force = false } = {}) {
   return load
 }
 
-export async function getArticleBySlug(slug, { force = false } = {}) {
+export async function getArticleBySlug(slug) {
   const hit = cache.articleBySlug.get(slug)
-  if (!force && hit && isFresh(hit.at, ARTICLE_TTL_MS)) {
-    return hit.data
-  }
 
   if (!client) {
     const demo = normalizeArticle(
@@ -183,10 +169,6 @@ export async function getArticleBySlug(slug, { force = false } = {}) {
 }
 
 export async function getCategories({ force = false } = {}) {
-  if (!force && cache.categories && isFresh(cache.categoriesAt, LIST_TTL_MS)) {
-    return cache.categories
-  }
-
   if (!force && cache.inflightCategories) {
     return cache.inflightCategories
   }
