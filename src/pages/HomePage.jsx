@@ -8,7 +8,13 @@ import FeatureRail from '../components/home/FeatureRail'
 import AlsoToday from '../components/home/AlsoToday'
 import PictureDesk from '../components/home/PictureDesk'
 import ScrollReveal from '../components/home/ScrollReveal'
-import { getArticles, getCategories, splitHomepage } from '../lib/sanity'
+import {
+  getArticles,
+  getCategories,
+  peekArticles,
+  peekCategories,
+  splitHomepage,
+} from '../lib/sanity'
 
 function formatMastheadDate(date = new Date()) {
   return date.toLocaleDateString('en-GB', {
@@ -20,9 +26,11 @@ function formatMastheadDate(date = new Date()) {
 }
 
 export default function HomePage() {
-  const [articles, setArticles] = useState([])
-  const [categories, setCategories] = useState([])
-  const [loading, setLoading] = useState(true)
+  const cachedArticles = peekArticles()
+  const cachedCategories = peekCategories()
+  const [articles, setArticles] = useState(cachedArticles || [])
+  const [categories, setCategories] = useState(cachedCategories || [])
+  const [loading, setLoading] = useState(!cachedArticles?.length)
 
   useEffect(() => {
     let alive = true
@@ -70,13 +78,13 @@ export default function HomePage() {
 
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 md:px-8">
         {/* Complex bento lead */}
-        <ScrollReveal className="mt-8 sm:mt-12 md:mt-14">
+        <div className="mt-8 sm:mt-12 md:mt-14">
           {loading ? (
             <div className="media-hero animate-pulse bg-ink/5" />
           ) : (
             <BentoLead lead={lead} sideStories={bentoSide} />
           )}
-        </ScrollReveal>
+        </div>
 
         {/* Auto-scrolling feature rail */}
         <ScrollReveal className="mt-[clamp(48px,8vw,100px)]" delay={80}>

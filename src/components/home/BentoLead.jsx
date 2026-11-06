@@ -15,6 +15,8 @@ export default function BentoLead({ lead, sideStories = [] }) {
           <img
             src={lead.mainImage.url}
             alt={lead.mainImage.alt || ''}
+            fetchPriority="high"
+            decoding="async"
             className="h-full min-h-[260px] w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-[1.04] sm:min-h-[320px] md:min-h-[480px]"
           />
         )}

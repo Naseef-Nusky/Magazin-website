@@ -4,18 +4,20 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { CategoryLayout } from '../components/category/layouts'
 import { getCategoryTheme } from '../lib/categoryThemes'
-import { getArticles, getCategories } from '../lib/sanity'
+import { getArticles, getCategories, peekArticles, peekCategories } from '../lib/sanity'
 
 export default function CategoryPage() {
   const { slug } = useParams()
-  const [articles, setArticles] = useState([])
-  const [categories, setCategories] = useState([])
-  const [loading, setLoading] = useState(true)
+  const cachedArticles = peekArticles()
+  const cachedCategories = peekCategories()
+  const [articles, setArticles] = useState(cachedArticles || [])
+  const [categories, setCategories] = useState(cachedCategories || [])
+  const [loading, setLoading] = useState(!cachedArticles?.length)
   const theme = getCategoryTheme(slug)
 
   useEffect(() => {
     let alive = true
-    setLoading(true)
+    if (!peekArticles()?.length) setLoading(true)
     ;(async () => {
       const [a, c] = await Promise.all([getArticles(), getCategories()])
       if (!alive) return

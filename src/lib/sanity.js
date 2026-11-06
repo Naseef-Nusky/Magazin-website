@@ -20,23 +20,37 @@ export const client = isSanityConfigured
       projectId,
       dataset,
       apiVersion,
-      // Fresh data while developing; CDN in production builds
+      // CDN is fast for readers; list queries stay light so freshness feels snappy
       useCdn: !import.meta.env.DEV,
-      // Public dataset — avoid credentialed CORS failures on new domains
       withCredentials: false,
     })
   : null
 
 const builder = client ? imageUrlBuilder(client) : null
 
-export function urlFor(source) {
+export function urlFor(source, { width = 1200, quality = 75 } = {}) {
   if (!source) return null
-  if (source.url) return source.url
+  if (source.url && !builder) return source.url
   if (!builder) return null
-  return builder.image(source).width(1200).url()
+  return builder.image(source).width(width).auto('format').quality(quality).url()
 }
 
-const articleFields = `
+/** Card / listing fields — no Portable Text body (keeps homepage fast) */
+const cardFields = `
+  _id,
+  title,
+  "slug": slug.current,
+  excerpt,
+  mainImage,
+  "category": category->{ _id, title, "slug": slug.current, color },
+  "author": author->{ _id, name, "slug": slug.current },
+  publishedAt,
+  featured,
+  isLead,
+  isLive
+`
+
+const detailFields = `
   _id,
   title,
   "slug": slug.current,
@@ -52,70 +66,159 @@ const articleFields = `
   body
 `
 
-function normalizeArticle(article) {
+function normalizeArticle(article, { imageWidth = 900 } = {}) {
   if (!article) return null
   return {
     ...article,
     mainImage: article.mainImage
       ? {
           ...article.mainImage,
-          url: article.mainImage.url || urlFor(article.mainImage),
+          url: article.mainImage.url || urlFor(article.mainImage, { width: imageWidth }),
           alt: article.mainImage.alt || article.title,
         }
       : null,
   }
 }
 
-export async function getArticles() {
-  if (!client) {
-    return demoArticles.map(normalizeArticle)
-  }
-
-  try {
-    const result = await client.fetch(
-      `*[_type == "article"] | order(publishedAt desc) { ${articleFields} }`,
-    )
-    if (!result?.length) return demoArticles.map(normalizeArticle)
-    return result.map(normalizeArticle)
-  } catch (error) {
-    console.warn('Sanity fetch failed, using demo content.', error)
-    return demoArticles.map(normalizeArticle)
-  }
+const cache = {
+  articles: null,
+  articlesAt: 0,
+  categories: null,
+  categoriesAt: 0,
+  articleBySlug: new Map(),
+  inflightArticles: null,
+  inflightCategories: null,
 }
 
-export async function getArticleBySlug(slug) {
+const LIST_TTL_MS = 60_000
+const ARTICLE_TTL_MS = 60_000
+
+function isFresh(at, ttl) {
+  return at > 0 && Date.now() - at < ttl
+}
+
+/** Instant paint from memory when available (may be slightly stale). */
+export function peekArticles() {
+  return cache.articles
+}
+
+export function peekCategories() {
+  return cache.categories
+}
+
+export async function getArticles({ force = false } = {}) {
+  if (!force && cache.articles && isFresh(cache.articlesAt, LIST_TTL_MS)) {
+    return cache.articles
+  }
+
+  if (!force && cache.inflightArticles) {
+    return cache.inflightArticles
+  }
+
+  const load = (async () => {
+    if (!client) {
+      const demo = demoArticles.map((a) => normalizeArticle(a, { imageWidth: 900 }))
+      cache.articles = demo
+      cache.articlesAt = Date.now()
+      return demo
+    }
+
+    try {
+      const result = await client.fetch(
+        `*[_type == "article"] | order(publishedAt desc) { ${cardFields} }`,
+      )
+      const articles = (result?.length ? result : demoArticles).map((a) =>
+        normalizeArticle(a, { imageWidth: 900 }),
+      )
+      cache.articles = articles
+      cache.articlesAt = Date.now()
+      return articles
+    } catch (error) {
+      console.warn('Sanity fetch failed, using demo content.', error)
+      if (cache.articles) return cache.articles
+      return demoArticles.map((a) => normalizeArticle(a, { imageWidth: 900 }))
+    } finally {
+      cache.inflightArticles = null
+    }
+  })()
+
+  cache.inflightArticles = load
+  return load
+}
+
+export async function getArticleBySlug(slug, { force = false } = {}) {
+  const hit = cache.articleBySlug.get(slug)
+  if (!force && hit && isFresh(hit.at, ARTICLE_TTL_MS)) {
+    return hit.data
+  }
+
   if (!client) {
-    return normalizeArticle(demoArticles.find((a) => a.slug === slug) || null)
+    const demo = normalizeArticle(
+      demoArticles.find((a) => a.slug === slug) || null,
+      { imageWidth: 1400 },
+    )
+    cache.articleBySlug.set(slug, { data: demo, at: Date.now() })
+    return demo
   }
 
   try {
     const result = await client.fetch(
-      `*[_type == "article" && slug.current == $slug][0]{ ${articleFields} }`,
+      `*[_type == "article" && slug.current == $slug][0]{ ${detailFields} }`,
       { slug },
     )
-    if (!result) {
-      return normalizeArticle(demoArticles.find((a) => a.slug === slug) || null)
-    }
-    return normalizeArticle(result)
+    const article = result
+      ? normalizeArticle(result, { imageWidth: 1400 })
+      : normalizeArticle(demoArticles.find((a) => a.slug === slug) || null, {
+          imageWidth: 1400,
+        })
+    cache.articleBySlug.set(slug, { data: article, at: Date.now() })
+    return article
   } catch (error) {
     console.warn('Sanity fetch failed, using demo content.', error)
-    return normalizeArticle(demoArticles.find((a) => a.slug === slug) || null)
+    if (hit?.data) return hit.data
+    return normalizeArticle(demoArticles.find((a) => a.slug === slug) || null, {
+      imageWidth: 1400,
+    })
   }
 }
 
-export async function getCategories() {
-  if (!client) return sortCategoriesByNav(demoCategories)
-
-  try {
-    const result = await client.fetch(
-      `*[_type == "category"] {
-        _id, title, "slug": slug.current, color
-      }`,
-    )
-    return sortCategoriesByNav(result?.length ? result : demoCategories)
-  } catch {
-    return sortCategoriesByNav(demoCategories)
+export async function getCategories({ force = false } = {}) {
+  if (!force && cache.categories && isFresh(cache.categoriesAt, LIST_TTL_MS)) {
+    return cache.categories
   }
+
+  if (!force && cache.inflightCategories) {
+    return cache.inflightCategories
+  }
+
+  const load = (async () => {
+    if (!client) {
+      const demo = sortCategoriesByNav(demoCategories)
+      cache.categories = demo
+      cache.categoriesAt = Date.now()
+      return demo
+    }
+
+    try {
+      const result = await client.fetch(
+        `*[_type == "category"] {
+          _id, title, "slug": slug.current, color
+        }`,
+      )
+      const categories = sortCategoriesByNav(result?.length ? result : demoCategories)
+      cache.categories = categories
+      cache.categoriesAt = Date.now()
+      return categories
+    } catch {
+      if (cache.categories) return cache.categories
+      return sortCategoriesByNav(demoCategories)
+    } finally {
+      cache.inflightCategories = null
+    }
+  })()
+
+  cache.inflightCategories = load
+  return load
 }
 
 export function splitHomepage(articles) {

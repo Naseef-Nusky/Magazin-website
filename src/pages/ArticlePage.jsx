@@ -3,7 +3,13 @@ import { Link, useParams } from 'react-router-dom'
 import { PortableText } from '@portabletext/react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { getArticleBySlug, getArticles, getCategories, urlFor } from '../lib/sanity'
+import {
+  getArticleBySlug,
+  getArticles,
+  getCategories,
+  peekCategories,
+  urlFor,
+} from '../lib/sanity'
 
 const portableComponents = {
   types: {
@@ -51,20 +57,24 @@ export default function ArticlePage() {
   const { slug } = useParams()
   const [article, setArticle] = useState(null)
   const [related, setRelated] = useState([])
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState(() => peekCategories() || [])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     let alive = true
     setLoading(true)
+    setRelated([])
+    window.scrollTo(0, 0)
+
     ;(async () => {
-      const [a, all, c] = await Promise.all([
-        getArticleBySlug(slug),
-        getArticles(),
-        getCategories(),
-      ])
+      // Paint the story as soon as the detail query returns — don't wait on related list
+      const a = await getArticleBySlug(slug)
       if (!alive) return
       setArticle(a)
+      setLoading(false)
+
+      const [all, c] = await Promise.all([getArticles(), getCategories()])
+      if (!alive) return
       setCategories(c)
       const more = all
         .filter(
@@ -78,8 +88,6 @@ export default function ArticlePage() {
           ? more
           : all.filter((x) => x.slug !== slug).slice(0, 3),
       )
-      setLoading(false)
-      window.scrollTo(0, 0)
     })()
     return () => {
       alive = false
