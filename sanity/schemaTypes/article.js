@@ -28,13 +28,63 @@ export default {
       title: 'Main image',
       type: 'image',
       options: { hotspot: true },
+      description:
+        'Use Unsplash/Pexels/Wikimedia or your own photos — never publisher news photos without a licence.',
       fields: [
+        { name: 'alt', type: 'string', title: 'Alt text' },
         {
-          name: 'alt',
+          name: 'photographer',
           type: 'string',
-          title: 'Alt text',
+          title: 'Photographer',
+        },
+        {
+          name: 'source',
+          type: 'string',
+          title: 'Source',
+          description: 'e.g. Unsplash, Pexels, Wikimedia Commons',
+        },
+        {
+          name: 'sourceUrl',
+          type: 'url',
+          title: 'Original image URL',
+        },
+        {
+          name: 'licence',
+          type: 'string',
+          title: 'Licence',
+          description: 'e.g. Unsplash License, Pexels License, CC BY-SA 4.0',
+        },
+        {
+          name: 'attributionRequired',
+          type: 'boolean',
+          title: 'Attribution required',
+          initialValue: false,
+        },
+        {
+          name: 'downloadDate',
+          type: 'date',
+          title: 'Download date',
         },
       ],
+    },
+    {
+      name: 'sources',
+      title: 'Source references',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'label', type: 'string', title: 'Label' },
+            { name: 'url', type: 'url', title: 'URL' },
+          ],
+          preview: {
+            select: { title: 'label', subtitle: 'url' },
+          },
+        },
+      ],
+      description:
+        'Link original reporting and official sources. Citing a publisher does not allow copying their text.',
     },
     {
       name: 'category',

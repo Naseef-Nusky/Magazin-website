@@ -10,17 +10,22 @@ export default function Footer({ flush = false }) {
       <div className="border-t border-ink/10 bg-paper-muted">
         <div className="mx-auto max-w-[1200px] px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
-            <div className="max-w-xl">
-              <p className="dot-label">Free to read</p>
+            <div className="max-w-xl self-start text-left">
               <Link
                 to="/"
-                className="mt-4 block font-display text-[clamp(2.5rem,8vw,5rem)] font-semibold leading-[0.92] tracking-tight text-ink transition-colors hover:text-brand"
+                className="-ml-2 block w-fit sm:-ml-3 md:-ml-4"
+                aria-label="Veridoxa home"
               >
-                Magazin
+                <img
+                  src="/logo.png"
+                  alt="Veridoxa.online"
+                  className="h-12 w-auto max-w-[240px] object-contain object-left sm:h-14 md:h-16"
+                />
               </Link>
-              <p className="mt-5 max-w-md font-mono text-[13px] leading-relaxed text-muted sm:text-sm">
-                Open minds, open access. A free digital magazine — no login, no
-                paywall, no noise.
+              <p className="dot-label mt-4">Free to read</p>
+              <p className="mt-3 max-w-md font-mono text-[13px] leading-relaxed text-muted sm:text-sm">
+                Perspective. Insight. Truth. A free digital magazine — no login,
+                no paywall, no noise.
               </p>
             </div>
 
@@ -64,7 +69,7 @@ export default function Footer({ flush = false }) {
       <div className="bg-brand text-paper">
         <div className="mx-auto max-w-[1200px] px-4 py-5 text-center sm:px-6 md:px-8">
           <p className="font-mono text-[11px] tracking-wide text-paper/80">
-            © {year} Magazin. Free to read.
+            © {year} Veridoxa.online. Free to read.
           </p>
         </div>
       </div>

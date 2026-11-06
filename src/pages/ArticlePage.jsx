@@ -149,9 +149,8 @@ export default function ArticlePage() {
                   </p>
                 )}
 
-                <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 border-y border-ink/10 py-3.5 font-mono text-[11px] uppercase tracking-wide text-muted sm:mt-6 sm:py-4 sm:text-[12px]">
-                  {article.author?.name && <span>By {article.author.name}</span>}
-                  {article.publishedAt && (
+                {article.publishedAt && (
+                  <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 border-y border-ink/10 py-3.5 font-mono text-[11px] uppercase tracking-wide text-muted sm:mt-6 sm:py-4 sm:text-[12px]">
                     <time dateTime={article.publishedAt}>
                       {new Date(article.publishedAt).toLocaleDateString('en-GB', {
                         day: 'numeric',
@@ -159,8 +158,8 @@ export default function ArticlePage() {
                         year: 'numeric',
                       })}
                     </time>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
 
               {article.mainImage?.url && (

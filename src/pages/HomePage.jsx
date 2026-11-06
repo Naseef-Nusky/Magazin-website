@@ -53,17 +53,17 @@ export default function HomePage() {
 
         <div className="relative mx-auto max-w-[1200px] px-4 pt-8 sm:px-6 sm:pt-12 md:px-8 md:pt-16">
           <div className="animate-fade-in">
-            <p className="dot-label text-[10px] sm:text-[11px]">Magazin · {formatMastheadDate()}</p>
+            <p className="dot-label text-[10px] sm:text-[11px]">Veridoxa · {formatMastheadDate()}</p>
           </div>
 
           <h1 className="hero-title mt-5 max-w-4xl font-display text-[clamp(2.15rem,9vw,5rem)] font-semibold leading-[0.98] text-ink sm:mt-6">
-            Magazin&apos;s{' '}
+            Veridoxa&apos;s{' '}
             <span className="hero-word">latest</span>{' '}
             stories
           </h1>
 
           <p className="mt-4 max-w-xl animate-rise font-mono text-[12px] leading-relaxed text-muted sm:mt-5 sm:text-[13px] md:text-sm" style={{ animationDelay: '120ms' }}>
-            A free digital magazine for open minds. No paywall. No login.
+            Perspective. Insight. Truth. Free to read — no paywall, no login.
           </p>
         </div>
       </section>

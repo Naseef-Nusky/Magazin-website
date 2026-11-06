@@ -25,7 +25,7 @@ export default function FeatureRail({ articles = [] }) {
             )}
             <div className="p-3.5 sm:p-4">
               <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-brand">
-                {article.author?.name || article.category?.title}
+                {article.category?.title}
               </p>
               <h3 className="mt-2 font-display text-[0.95rem] font-semibold leading-snug tracking-tight transition-colors group-hover:text-brand sm:text-[1.05rem]">
                 {article.title}

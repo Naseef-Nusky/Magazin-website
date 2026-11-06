@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { navCategories } from '../data/demoArticles'
+import { navCategories, sortCategoriesByNav } from '../data/demoArticles'
 
 export default function Header({
   categories = navCategories,
@@ -10,13 +10,12 @@ export default function Header({
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const labels = categories.length
-    ? categories.map((c) =>
-        typeof c === 'string'
-          ? { title: c, slug: c.toLowerCase() }
-          : { title: c.title, slug: c.slug || c.title.toLowerCase() },
-      )
-    : navCategories.map((c) => ({ title: c, slug: c.toLowerCase() }))
+  const labels = sortCategoriesByNav(categories.length ? categories : navCategories).map(
+    (c) =>
+      typeof c === 'string'
+        ? { title: c, slug: c.toLowerCase() }
+        : { title: c.title, slug: c.slug || c.title.toLowerCase() },
+  )
 
   const current =
     activeSlug ||
@@ -61,15 +60,13 @@ export default function Header({
       }`}
     >
       {/* Mobile bar */}
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-3 px-4 py-3 sm:px-6 md:hidden">
-        <Link to="/" className="shrink-0" aria-label="Magazin home">
-          <span
-            className={`font-display text-[14px] font-semibold uppercase tracking-[0.08em] ${
-              dark ? 'text-white' : 'text-ink'
-            }`}
-          >
-            Magazin
-          </span>
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-3 px-4 py-3.5 sm:px-6 md:hidden">
+        <Link to="/" className="shrink-0" aria-label="Veridoxa home">
+          <img
+            src="/logo.png"
+            alt="Veridoxa.online"
+            className="h-14 w-auto object-contain sm:h-16"
+          />
         </Link>
 
         <button
@@ -120,15 +117,13 @@ export default function Header({
       )}
 
       {/* Desktop / tablet centered */}
-      <div className="mx-auto hidden max-w-[1200px] flex-col items-center gap-3 px-6 py-3.5 md:flex md:px-8">
-        <Link to="/" className="shrink-0" aria-label="Magazin home">
-          <span
-            className={`font-display text-[15px] font-semibold uppercase tracking-[0.08em] ${
-              dark ? 'text-white' : 'text-ink'
-            }`}
-          >
-            Magazin
-          </span>
+      <div className="mx-auto hidden max-w-[1200px] flex-col items-center gap-4 px-6 py-4 md:flex md:px-8">
+        <Link to="/" className="shrink-0" aria-label="Veridoxa home">
+          <img
+            src="/logo.png"
+            alt="Veridoxa.online"
+            className="h-20 w-auto object-contain lg:h-24"
+          />
         </Link>
 
         <nav

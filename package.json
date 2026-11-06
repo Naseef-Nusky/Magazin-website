@@ -8,8 +8,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "studio": "sanity dev --config sanity/sanity.config.js",
-    "studio:build": "sanity build --config sanity/sanity.config.js"
+    "studio": "sanity dev",
+    "studio:build": "sanity build",
+    "seed": "node scripts/seedSanity.mjs"
   },
   "dependencies": {
     "@portabletext/react": "^8.0.1",

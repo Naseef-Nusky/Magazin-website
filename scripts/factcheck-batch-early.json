@@ -1,0 +1,508 @@
+[
+  {
+    "_id": "a1",
+    "title": "Bank Rate talk returns: what a first rise in years would mean for UK borrowers",
+    "verdict": "CONFIRMED",
+    "notes": "Core rate facts match BoE/market reporting: Bank Rate was 3.75% before the 5 Nov 2026 hike to 4%, markets had priced that move, and it was the first rise in over three years. Household impact discussion is general analysis.",
+    "claims": [
+      {
+        "claim": "Bank Rate stood at 3.75% with markets discussing a move toward 4%",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bankofengland.co.uk/monetary-policy-report/2026/november-2026"
+      },
+      {
+        "claim": "A rise would be the first upward move in more than three years",
+        "status": "CONFIRMED",
+        "evidence": "https://www.cnbc.com/2026/11/05/interest-rates-inflation-uk.html"
+      },
+      {
+        "claim": "Trackers/SVRs can reprice faster than fixed-rate mortgages after a Bank Rate change",
+        "status": "CONFIRMED",
+        "evidence": "Standard BoE/lender product mechanics; consistent with Bank of England mortgage market explainers"
+      }
+    ]
+  },
+  {
+    "_id": "a2",
+    "title": "Asbestos warnings push Parliament closer to a hard choice on rebuilding",
+    "verdict": "CONFIRMED",
+    "notes": "BBC FOI reporting and PAC coverage corroborate further asbestos finds, 'grave risk' language, multi-billion cost, and crunch-time restoration decision.",
+    "claims": [
+      {
+        "claim": "Fresh asbestos discoveries on the parliamentary estate have raised safety warnings",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.co.uk/news/articles/cqly0k8l5mdvo"
+      },
+      {
+        "claim": "MPs/committee language frames delay as creating 'grave' or catastrophic risk (incl. Notre-Dame fire analogies)",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.co.uk/news/articles/cqly0k8l5mdvo"
+      },
+      {
+        "claim": "Restoration cost/timeline measured in billions and decades",
+        "status": "CONFIRMED",
+        "evidence": "https://www.theguardian.com/uk-news/2026/nov/04/parliament-notre-dame-style-fire-renovation-costs"
+      }
+    ]
+  },
+  {
+    "_id": "a3",
+    "title": "Wales’s £200m train fleet sits barely used — a procurement lesson for the UK",
+    "verdict": "CONFIRMED",
+    "notes": "BBC reporting on TfW Class 398 tram-trains matches the £200m+ cost, little passenger use three years on, and delayed full service into 2027.",
+    "claims": [
+      {
+        "claim": "A publicly funded Welsh train fleet costing roughly £200m has seen little use ~3 years after delivery",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.co.uk/news/articles/cv62kwg0k038o"
+      },
+      {
+        "claim": "Full service originally promised earlier and now expected much later (around end-2027)",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.co.uk/news/articles/cv62kwg0k038o"
+      },
+      {
+        "claim": "Less than half the fleet had completed statutory testing at time of reporting",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.co.uk/news/articles/cv62kwg0k038o"
+      }
+    ]
+  },
+  {
+    "_id": "a4",
+    "title": "Sterling climbs to levels not seen since the Brexit referendum era",
+    "verdict": "CONFIRMED",
+    "notes": "BoE effective exchange-rate index highs since June 2016 are reported by BBC/Guardian. Article is light on the exact index level but the headline claim is accurate.",
+    "claims": [
+      {
+        "claim": "Sterling reached highs associated with the post-2016 referendum era",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.co.uk/news/articles/c6lykq2qjn2vo"
+      },
+      {
+        "claim": "A stronger pound helps importers/holidaymakers and can squeeze exporters priced in foreign currency",
+        "status": "CONFIRMED",
+        "evidence": "Standard FX economics; consistent with https://www.theguardian.com/business/2026/nov/05/pound-hits-highest-level-since-2016-brexit-vote"
+      },
+      {
+        "claim": "Rate expectations helped support sterling into the BoE decision window",
+        "status": "CONFIRMED",
+        "evidence": "https://live.euronext.com/en/financial-news/sterling-roughly-unchanged-after-six-session-rally-and-boe-rate-hike"
+      }
+    ]
+  },
+  {
+    "_id": "a5",
+    "title": "UK signals “time-bound” talks on a slavery apology — what that phrase really means",
+    "verdict": "CONFIRMED",
+    "notes": "CHOGM communique language and coverage of King Charles’s remarks (horror/sorrow; 'monstrous injustice' in speech) match. No fixed calendar date published.",
+    "claims": [
+      {
+        "claim": "UK agreed to 'time-bound' dialogue on historical harms of the slave trade",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.com/news/articles/cqdr872jkk7vo"
+      },
+      {
+        "claim": "King Charles condemned the slave trade in strong moral language but did not issue a formal royal apology",
+        "status": "CONFIRMED",
+        "evidence": "https://www.independent.co.uk/news/uk/home-news/king-charles-uk-slave-trade-apology-commonwealth-antigua-b3078415.html"
+      },
+      {
+        "claim": "'Time-bound' does not by itself publish a fixed calendar deadline",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.com/news/articles/cqdr872jkk7vo"
+      }
+    ]
+  },
+  {
+    "_id": "a6",
+    "title": "Finance Bill 2026-27: how Budget resolutions become law",
+    "verdict": "CONFIRMED",
+    "notes": "Commons Library briefing confirms large set of Ways and Means resolutions after Autumn Budget, Finance Bill 2026-27 introduction, and contested measures including alcohol duty, property/savings tax, and HVCTS.",
+    "claims": [
+      {
+        "claim": "After the Autumn Budget, Commons approved large numbers of Ways and Means resolutions feeding the Finance Bill",
+        "status": "CONFIRMED",
+        "evidence": "https://commonslibrary.parliament.uk/research-briefings/cbp-12273/"
+      },
+      {
+        "claim": "Finance Bill 2026-27 is the vehicle turning Budget measures into tax law",
+        "status": "CONFIRMED",
+        "evidence": "https://commonslibrary.parliament.uk/research-briefings/cbp-12273/"
+      },
+      {
+        "claim": "Contested resolutions included alcohol duty, property/savings tax changes, and a high-value council tax surcharge",
+        "status": "CONFIRMED",
+        "evidence": "https://commonslibrary.parliament.uk/research-briefings/cbp-12273/"
+      }
+    ]
+  },
+  {
+    "_id": "a7",
+    "title": "High-value council tax surcharge clears a Commons test — what councils should watch",
+    "verdict": "CONFIRMED",
+    "notes": "Resolution No. 86 passed on division 327–161 on 3 Nov 2026; implementation detail still to come via Finance Bill/secondary rules.",
+    "claims": [
+      {
+        "claim": "High Value Council Tax Surcharge was among Budget resolutions that went to a division",
+        "status": "CONFIRMED",
+        "evidence": "https://votes.parliament.uk/Votes/Commons/Division/2470"
+      },
+      {
+        "claim": "It passed with a clear Commons majority",
+        "status": "CONFIRMED",
+        "evidence": "https://votes.parliament.uk/Votes/Commons/Division/2470"
+      },
+      {
+        "claim": "Clearing the resolution is not the end of implementation detail for councils/homeowners",
+        "status": "CONFIRMED",
+        "evidence": "https://www.gov.uk/government/publications/high-value-council-tax-surcharge/high-value-council-tax-surcharge"
+      }
+    ]
+  },
+  {
+    "_id": "a8",
+    "title": "Under-16s and social media: petition debate without a Commons vote",
+    "verdict": "CONFIRMED",
+    "notes": "Petition ~217,682 / 'nearly 218,000' signatures; Westminster Hall debate 2 Nov 2026 with no binding vote — matches Petitions Committee and Hansard Society.",
+    "claims": [
+      {
+        "claim": "E-petition against under-16 social media ban drew nearly 218,000 signatures",
+        "status": "CONFIRMED",
+        "evidence": "https://www.hansardsociety.org.uk/news/parliament-matters-bulletin-2-november-2026"
+      },
+      {
+        "claim": "It triggered a Westminster Hall debate, not a binding Commons vote rewriting policy",
+        "status": "CONFIRMED",
+        "evidence": "https://committees.parliament.uk/committee/326/petitions-committee/news/218370/mps-will-debate-a-petition-relating-to-the-proposed-ban-on-social-media-for-under-16s/"
+      },
+      {
+        "claim": "Debate allows questioning of ministers rather than immediate legislation",
+        "status": "CONFIRMED",
+        "evidence": "https://committees.parliament.uk/committee/326/petitions-committee/news/218370/mps-will-debate-a-petition-relating-to-the-proposed-ban-on-social-media-for-under-16s/"
+      }
+    ]
+  },
+  {
+    "_id": "a9",
+    "title": "Votes at 16 moves through Lords Committee — what the Bill actually changes",
+    "verdict": "CONFIRMED",
+    "notes": "Representation of the People Bill Lords Committee began early November 2026; long title covers votes at 16, voter ID, and political donations.",
+    "claims": [
+      {
+        "claim": "Lords began Committee stage on the Representation of the People Bill in early November 2026",
+        "status": "CONFIRMED",
+        "evidence": "https://www.parliament.uk/business/news/2026/october-2026/representation-of-the-people-house-of-lords-committee-stage/"
+      },
+      {
+        "claim": "Bill would lower voting age to 16 for UK parliamentary and local elections",
+        "status": "CONFIRMED",
+        "evidence": "https://bills.parliament.uk/bills/4080"
+      },
+      {
+        "claim": "Same Bill also covers voter ID expansion and political donation/finance rules",
+        "status": "CONFIRMED",
+        "evidence": "https://www.hansardsociety.org.uk/news/parliament-matters-bulletin-2-november-2026"
+      }
+    ]
+  },
+  {
+    "_id": "a10",
+    "title": "Commons recess checklist: Sporting Events, railways and cyber Bills parked for later",
+    "verdict": "PARTLY TRUE",
+    "notes": "Recess dates and rail/cyber carry-over motions are confirmed. Framing Sporting Events as 'parked' is imprecise: remaining stages were scheduled/taken on 4 Nov before the House rose, while carry-over mainly preserved railways and cyber legislation.",
+    "claims": [
+      {
+        "claim": "House rose after 4 November business and was due to return on 10 November",
+        "status": "CONFIRMED",
+        "evidence": "https://commonsbusiness.parliament.uk/Document/108569/Pdf?subType=Standard"
+      },
+      {
+        "claim": "Carry-over motions related to railways and cyber-security legislation",
+        "status": "CONFIRMED",
+        "evidence": "https://commonsbusiness.parliament.uk/Document/108385/Html?subType=Standard"
+      },
+      {
+        "claim": "Sporting Events, railways and cyber bills were all 'parked for later' over recess",
+        "status": "PARTLY TRUE",
+        "evidence": "Order Paper scheduled Sporting Events remaining stages on 4 Nov itself (https://commonsbusiness.parliament.uk/Document/108385/Html?subType=Standard); rail/cyber were the carry-over items"
+      }
+    ]
+  },
+  {
+    "_id": "a16",
+    "title": "Ofgem price cap: typical dual-fuel bill at £1,723 this quarter — what that figure means",
+    "verdict": "CONFIRMED",
+    "notes": "Matches Ofgem Oct–Dec 2026 cap: £1,723 typical Direct Debit dual-fuel, ~£60 / 4% above prior quarter; VAT split on electricity vs gas also matches Ofgem tables.",
+    "claims": [
+      {
+        "claim": "Ofgem typical Direct Debit dual-fuel bill is £1,723 for 1 Oct–31 Dec 2026",
+        "status": "CONFIRMED",
+        "evidence": "https://www.ofgem.gov.uk/press-release/energy-price-cap-will-rise-4-october-2026"
+      },
+      {
+        "claim": "That is about £60 higher than the previous quarter’s typical figure",
+        "status": "CONFIRMED",
+        "evidence": "https://www.ofgem.gov.uk/press-release/energy-price-cap-will-rise-4-october-2026"
+      },
+      {
+        "claim": "Electricity has no domestic VAT in this window while gas still includes 5% VAT in published averages",
+        "status": "CONFIRMED",
+        "evidence": "https://www.ofgem.gov.uk/information-consumers/energy-advice-households/energy-price-cap-unit-rates-and-standing-charges"
+      }
+    ]
+  },
+  {
+    "_id": "a17",
+    "title": "Gas standing charges set to go — a practical guide while you wait for 2027",
+    "verdict": "CONFIRMED",
+    "notes": "Budget/GOV.UK and MSE confirm gas standing charges to be removed with costs shifted into unit rates; timing '2027 or as soon as possible after'; electricity standing charges remain for now.",
+    "claims": [
+      {
+        "claim": "Government asked Ofgem to remove gas standing charges from ~2027, shifting costs into unit rates",
+        "status": "CONFIRMED",
+        "evidence": "https://www.gov.uk/government/news/chancellor-abolishes-standing-charges-on-gas-bills-to-make-payments-fairer"
+      },
+      {
+        "claim": "Timing language is '2027 or as soon as possible after'",
+        "status": "CONFIRMED",
+        "evidence": "https://questions-statements.parliament.uk/written-questions/detail/2026-10-20/36465"
+      },
+      {
+        "claim": "Electricity standing charges remain for now",
+        "status": "CONFIRMED",
+        "evidence": "https://www.moneysavingexpert.com/news/2026/10/energy-standing-charges-scrapped/"
+      }
+    ]
+  },
+  {
+    "_id": "a18",
+    "title": "£100 energy support for council-tax bands A–D: who should expect what",
+    "verdict": "CONFIRMED",
+    "notes": "Household Energy Payment of £100 for England bands A–D covering around/up to 20 million households is confirmed; Scotland/Wales matching approaches also reported.",
+    "claims": [
+      {
+        "claim": "£100 payment aimed at council-tax bands A–D as energy-bill support",
+        "status": "CONFIRMED",
+        "evidence": "https://www.gov.uk/government/news/what-the-autumn-budget-2026-means-for-your-energy-bills"
+      },
+      {
+        "claim": "Around 20 million English households in scope",
+        "status": "CONFIRMED",
+        "evidence": "https://www.gov.uk/government/publications/council-tax-information-letter-62026-household-energy-payment-2027/council-tax-information-letter-62026-household-energy-payment-2027"
+      },
+      {
+        "claim": "Scotland and Wales matching eligibility approaches via devolved governments",
+        "status": "CONFIRMED",
+        "evidence": "https://www.moneysavingexpert.com/news/2026/10/council-tax-100-energy-support-payment/"
+      }
+    ]
+  },
+  {
+    "_id": "a21",
+    "title": "Glasgow’s Citizens Theatre named Great British Theatre of 2026",
+    "verdict": "CONFIRMED",
+    "notes": "Theatres Trust inaugural awards: Citizens took Great British Theatre 2026 and Great Renovation after delayed renovation/reopening.",
+    "claims": [
+      {
+        "claim": "Citizens Theatre named Great British Theatre of 2026 at inaugural Theatres Trust awards",
+        "status": "CONFIRMED",
+        "evidence": "https://www.theatrestrust.org.uk/great-british-theatres-awards-2026-winners"
+      },
+      {
+        "claim": "Venue also won a renovation prize",
+        "status": "CONFIRMED",
+        "evidence": "https://citz.co.uk/news-and-stories/citizens-theatre-named-great-british-theatre-2026/"
+      },
+      {
+        "claim": "Award follows a long delayed renovation/closure",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.co.uk/news/articles/c615j1dj5ylqo"
+      }
+    ]
+  },
+  {
+    "_id": "a23",
+    "title": "Alton Towers closes World of David Walliams — theme parks remake themselves constantly",
+    "verdict": "CONFIRMED",
+    "notes": "Permanent closure Nov 2026, 2021 opening with HarperCollins partnership, and Merlin 'regular review' framing are all publicly reported. 'Short run' is subjective but not a hard falsehood.",
+    "claims": [
+      {
+        "claim": "Alton Towers permanently closed World of David Walliams",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.co.uk/news/articles/cx8dznljndyzo"
+      },
+      {
+        "claim": "Area opened in 2021 in partnership with HarperCollins",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.co.uk/news/articles/cx8dznljndyzo"
+      },
+      {
+        "claim": "Resort framed decision as part of a regular review of its offer",
+        "status": "CONFIRMED",
+        "evidence": "https://www.standard.co.uk/showbiz/celebrity-news/david-walliams-david-alton-towers-harpercollins-merlin-entertainments-b1303382.html"
+      }
+    ]
+  },
+  {
+    "_id": "a31",
+    "title": "Sporting Events Bill advances as Commons clears remaining stages",
+    "verdict": "CONFIRMED",
+    "notes": "Commons business for 4 Nov 2026 scheduled remaining stages of Sporting Events Bill [Lords] before recess; interpretive claims about tickets/stewarding are general but grounded in the bill’s remaining-stages slot.",
+    "claims": [
+      {
+        "claim": "Sporting Events Bill had remaining stages in the Commons before November recess",
+        "status": "CONFIRMED",
+        "evidence": "https://commonsbusiness.parliament.uk/Document/108385/Html?subType=Standard"
+      },
+      {
+        "claim": "Parliamentary time for the bill sat alongside other early-November business including carry-over motions",
+        "status": "CONFIRMED",
+        "evidence": "https://www.parliament.uk/business/news/2026/october-2026/coming-up-in-the-commons-2-4-november/"
+      },
+      {
+        "claim": "Major sporting events sit under statutory rules on tickets/security/licensing beyond marketing",
+        "status": "PARTLY TRUE",
+        "evidence": "Plausible legislative framing; specific clause-level duties not independently itemised in article — treat as interpretive without citing bill text"
+      }
+    ]
+  },
+  {
+    "_id": "a36",
+    "title": "Iran brands RAF and Royal Navy “terrorist” — UK calls it bare-faced cheek",
+    "verdict": "CONFIRMED",
+    "notes": "Iran MFA designations and Streeting Berlin remarks ('bare-faced cheek', diplomacy still preferred) widely reported; linked to UK action against IRGC.",
+    "claims": [
+      {
+        "claim": "Iran designated RAF and Royal Navy as terrorist organisations and MI6 as a hostile group",
+        "status": "CONFIRMED",
+        "evidence": "https://www.independent.co.uk/news/uk/home-news/wes-streeting-iran-royal-navy-raf-royal-air-force-b3077796.html"
+      },
+      {
+        "claim": "Tehran framed this as reciprocity after UK outlawed support for the IRGC",
+        "status": "CONFIRMED",
+        "evidence": "https://metro.co.uk/2026/11/01/iran-designates-raf-royal-navy-terrorist-organisations-29755900/"
+      },
+      {
+        "claim": "Defence Secretary Wes Streeting rejected the charge and used 'bare-faced cheek' language while preferring diplomacy",
+        "status": "CONFIRMED",
+        "evidence": "https://www.independent.co.uk/news/uk/home-news/wes-streeting-iran-royal-navy-raf-royal-air-force-b3077796.html"
+      }
+    ]
+  },
+  {
+    "_id": "a37",
+    "title": "Burnham links ending the Iran war to UK cost-of-living relief",
+    "verdict": "CONFIRMED",
+    "notes": "PM Andy Burnham at Commonwealth summit tied Middle East de-escalation / reopened Hormuz and US midterms to cost-of-living focus; widely reported.",
+    "claims": [
+      {
+        "claim": "At a Commonwealth summit, PM Andy Burnham linked Middle East de-escalation and a reopened Strait of Hormuz to household costs",
+        "status": "CONFIRMED",
+        "evidence": "https://www.independent.co.uk/news/uk/home-news/andy-burnham-donald-trump-prime-minister-strait-of-hormuz-b3079096.html"
+      },
+      {
+        "claim": "He said US midterm results create space to focus on living costs / ending the Iran conflict",
+        "status": "CONFIRMED",
+        "evidence": "https://www.iranintl.com/en/202611044483"
+      },
+      {
+        "claim": "He argued he cannot ease UK cost-of-living pressures until the Middle East conflict is resolved",
+        "status": "CONFIRMED",
+        "evidence": "https://www.bbc.co.uk/news/articles/c6kgl0xk8en9o"
+      }
+    ]
+  },
+  {
+    "_id": "a38",
+    "title": "Hormuz shipping claims: why UKMTO reports matter more than viral war footage",
+    "verdict": "CONFIRMED",
+    "notes": "UKMTO warning documents a tanker struck by unknown projectiles near Lima/Musandam with no casualties; article correctly treats maximalist social claims as unevenly verified.",
+    "claims": [
+      {
+        "claim": "UKMTO reported a tanker struck by unknown projectiles near Oman’s Musandam/Lima area with no casualties noted",
+        "status": "CONFIRMED",
+        "evidence": "https://www.ukmto.org/-/media/ukmto/products/20261103-ukmto_warning_195_26.pdf"
+      },
+      {
+        "claim": "Iranian/viral claims about tanker fires and interceptions have been unevenly independently verified",
+        "status": "CONFIRMED",
+        "evidence": "Article’s caution matches gap between IRGC-style claims and thinner UKMTO logs; see also https://crewmirror.com/news/news-maritime/tanker-hit-off-oman-as-iran-claims-mine-strikes/"
+      },
+      {
+        "claim": "Verified maritime advisories matter more for markets/mariners than unverified social footage",
+        "status": "CONFIRMED",
+        "evidence": "Consistent with UKMTO/JMIC incident-discipline role: https://www.ukmto.org/"
+      }
+    ]
+  },
+  {
+    "_id": "a39",
+    "title": "‘No Place for Knives’ ads hit Westminster, Croydon and Birmingham",
+    "verdict": "CONFIRMED",
+    "notes": "Home Office launch confirms locations, toolkit (patrols, metal detection, e-bikes, live facial recognition), and cited national/London knife-crime falls since GE.",
+    "claims": [
+      {
+        "claim": "Home Office 'No Place for Knives' campaign launching in parts of Westminster, Croydon and Birmingham",
+        "status": "CONFIRMED",
+        "evidence": "https://www.gov.uk/government/news/no-place-for-knives-campaign-launches-in-london-hotspots"
+      },
+      {
+        "claim": "Ads warn of extra patrols, smarter metal detection, e-bike units and live facial recognition",
+        "status": "CONFIRMED",
+        "evidence": "https://www.gov.uk/government/news/no-place-for-knives-campaign-launches-in-london-hotspots"
+      },
+      {
+        "claim": "Government figures claim national knife crime down since the General Election, with sharper London homicide/robbery falls",
+        "status": "CONFIRMED",
+        "evidence": "https://www.gov.uk/government/news/no-place-for-knives-campaign-launches-in-london-hotspots"
+      }
+    ]
+  },
+  {
+    "_id": "a40",
+    "title": "National Knife Crime Centre: 1,364 weapons seized in six months",
+    "verdict": "CONFIRMED",
+    "notes": "NPCC release confirms 1,364 weapons seized/recovered in first six months, Home Office funding, NPCC hosting, and grey-market/import focus with dozens of arrests/charges.",
+    "claims": [
+      {
+        "claim": "National Knife Crime Centre reports 1,364 weapons seized or recovered in its first six months",
+        "status": "CONFIRMED",
+        "evidence": "https://news.npcc.police.uk/releases/national-knife-crime-centre-marks-six-months-of-action"
+      },
+      {
+        "claim": "Centre is Home Office-funded and hosted by the NPCC",
+        "status": "CONFIRMED",
+        "evidence": "https://news.npcc.police.uk/releases/national-knife-crime-centre-marks-six-months-of-action"
+      },
+      {
+        "claim": "Work includes dozens of arrests/charges tied to grey-market sales or importation",
+        "status": "CONFIRMED",
+        "evidence": "https://news.npcc.police.uk/releases/national-knife-crime-centre-marks-six-months-of-action"
+      }
+    ]
+  },
+  {
+    "_id": "a41",
+    "title": "Met case closes: 47 years for £80m cocaine haul hidden in furniture parts",
+    "verdict": "CONFIRMED",
+    "notes": "Met release confirms combined sentences above 47 years, >£80m / 780kg cocaine, Northampton layby tip-off 2021, furniture-parts cover, and 20-year Old Bailey term in late Oct/early Nov 2026.",
+    "claims": [
+      {
+        "claim": "Three people sentenced to a combined total of more than 47 years for cocaine conspiracy valued above £80m",
+        "status": "CONFIRMED",
+        "evidence": "https://news.met.police.uk/news/three-sentenced-to-47-years-for-smuggling-ps80million-of-cocaine-into-uk-514704"
+      },
+      {
+        "claim": "Drugs found after 2021 Northampton layby tip-off involving an HGV container from Mexico supposedly carrying furniture parts; ~780kg recovered",
+        "status": "CONFIRMED",
+        "evidence": "https://news.met.police.uk/news/three-sentenced-to-47-years-for-smuggling-ps80million-of-cocaine-into-uk-514704"
+      },
+      {
+        "claim": "Includes a 20-year Old Bailey term for a defendant convicted in late October 2026",
+        "status": "CONFIRMED",
+        "evidence": "https://news.met.police.uk/news/three-sentenced-to-47-years-for-smuggling-ps80million-of-cocaine-into-uk-514704"
+      }
+    ]
+  }
+]

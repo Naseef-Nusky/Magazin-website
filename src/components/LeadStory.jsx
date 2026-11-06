@@ -36,11 +36,6 @@ export default function LeadStory({ article }) {
           </p>
         )}
         <div className="mt-5 flex flex-wrap items-center gap-4">
-          {article.author?.name && (
-            <span className="font-mono text-[11px] uppercase tracking-wide text-ink/45">
-              By {article.author.name}
-            </span>
-          )}
           <span className="font-mono text-[11px] font-medium uppercase tracking-wide text-brand">
             Read story →
           </span>

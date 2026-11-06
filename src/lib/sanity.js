@@ -1,6 +1,10 @@
 import { createClient } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
-import { articles as demoArticles, categories as demoCategories } from '../data/demoArticles'
+import {
+  articles as demoArticles,
+  categories as demoCategories,
+  sortCategoriesByNav,
+} from '../data/demoArticles'
 
 const projectId = import.meta.env.VITE_SANITY_PROJECT_ID
 const dataset = import.meta.env.VITE_SANITY_DATASET || 'production'
@@ -13,7 +17,8 @@ export const client = isSanityConfigured
       projectId,
       dataset,
       apiVersion,
-      useCdn: true,
+      // Fresh data while developing; CDN in production builds
+      useCdn: !import.meta.env.DEV,
     })
   : null
 
@@ -32,6 +37,7 @@ const articleFields = `
   "slug": slug.current,
   excerpt,
   mainImage,
+  sources[]{ label, url },
   "category": category->{ _id, title, "slug": slug.current, color },
   "author": author->{ _id, name, "slug": slug.current, image, bio },
   publishedAt,
@@ -93,17 +99,17 @@ export async function getArticleBySlug(slug) {
 }
 
 export async function getCategories() {
-  if (!client) return demoCategories
+  if (!client) return sortCategoriesByNav(demoCategories)
 
   try {
     const result = await client.fetch(
-      `*[_type == "category"] | order(title asc) {
+      `*[_type == "category"] {
         _id, title, "slug": slug.current, color
       }`,
     )
-    return result?.length ? result : demoCategories
+    return sortCategoriesByNav(result?.length ? result : demoCategories)
   } catch {
-    return demoCategories
+    return sortCategoriesByNav(demoCategories)
   }
 }
 

@@ -1,9 +1,7 @@
-import { defineCliConfig } from 'sanity/cli'
-
-export default defineCliConfig({
+export default {
   api: {
-    projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'your-project-id',
-    dataset: process.env.SANITY_STUDIO_DATASET || 'production',
+    projectId: 'cm10f4zr',
+    dataset: 'production',
   },
-  studioHost: 'magazin',
-})
+  studioHost: 'veridoxa',
+}

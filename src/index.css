@@ -6,11 +6,11 @@
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   --color-paper: #ffffff;
-  --color-paper-muted: #f4f1ef;
-  --color-ink: #1a1214;
-  --color-brand: #7a1f2b;
-  --color-accent: #4c1018;
-  --color-muted: #6e6466;
+  --color-paper-muted: #f0f3f7;
+  --color-ink: #0b1f3a;
+  --color-brand: #c41e26;
+  --color-accent: #061428;
+  --color-muted: #5a6570;
 
   --animate-rise: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-fade-in: fade-in 0.55s ease-out both;

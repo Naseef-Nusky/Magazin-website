@@ -67,7 +67,6 @@ function FeatureLead({ article, theme, badge = 'Featured' }) {
         </p>
       )}
       <div className="mt-4 flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-wide sm:gap-4">
-        {article.author?.name && <span className="text-muted">By {article.author.name}</span>}
         <span className="text-brand">Read story →</span>
       </div>
     </Link>
@@ -205,7 +204,7 @@ export function OpinionLayout({ theme, articles }) {
             )}
             <div className="flex flex-1 flex-col pt-4">
               <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-brand sm:text-[11px]">
-                {article.author?.name || 'Staff'} · {formatDate(article.publishedAt)}
+                {formatDate(article.publishedAt)}
               </p>
               <h2 className="mt-2 font-display text-lg font-semibold leading-snug tracking-tight text-ink transition-colors group-hover:text-brand sm:text-xl">
                 {article.title}
@@ -406,11 +405,6 @@ export function LifeLayout({ theme, articles }) {
               </h2>
               {article.excerpt && (
                 <p className="mt-3 font-mono text-[12px] leading-relaxed text-muted sm:text-[13px]">{article.excerpt}</p>
-              )}
-              {article.author?.name && (
-                <p className="mt-4 font-mono text-[11px] uppercase tracking-wide text-muted">
-                  {article.author.name}
-                </p>
               )}
             </div>
           </Link>

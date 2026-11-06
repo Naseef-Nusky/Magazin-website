@@ -1,8 +1,8 @@
 /**
- * Section layouts on shared Magazin paper (Burgundy + White).
+ * Section layouts on shared Veridoxa paper (Navy + Red + White).
  * Accents stay on-brand so every page matches the global palette.
  */
-const BRAND = '#7a1f2b'
+const BRAND = '#c41e26'
 
 export const categoryThemes = {
   news: {
@@ -41,12 +41,6 @@ export const categoryThemes = {
     tagline: 'Scores, stories, and the roar after.',
     accent: BRAND,
   },
-  world: {
-    layout: 'world',
-    label: 'World',
-    tagline: 'Dispatches from beyond the UK.',
-    accent: BRAND,
-  },
   life: {
     layout: 'life',
     label: 'Life',
@@ -60,7 +54,7 @@ export function getCategoryTheme(slug) {
     categoryThemes[slug] || {
       layout: 'news',
       label: slug?.charAt(0).toUpperCase() + slug?.slice(1) || 'Section',
-      tagline: 'Stories from Magazin.',
+      tagline: 'Stories from Veridoxa.',
       accent: BRAND,
     }
   )

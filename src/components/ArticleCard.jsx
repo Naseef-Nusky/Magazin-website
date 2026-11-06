@@ -23,7 +23,7 @@ export function FeaturedStripCard({ article }) {
       )}
       <div className="flex flex-1 flex-col p-4">
         <p className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-brand">
-          {article.author?.name || 'Feature'}
+          {article.category?.title || 'Feature'}
         </p>
         <h3 className="mt-2 font-display text-[1.05rem] font-medium leading-snug tracking-tight text-ink transition-colors group-hover:text-brand">
           {article.title}
